@@ -1,1 +1,25 @@
-
+services:
+  - type: web
+    name: iess-agent
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: AGENT_MODE
+        value: auto
+      - key: DEFAULT_TENANT
+        value: iess
+      - key: DATA_SOURCE
+        value: auto
+      - key: OPENAI_BASE_URL
+        value: https://api.openai.com/v1
+      - key: OPENAI_MODEL
+        value: gpt-4o-mini
+      - key: OTP_EXPIRACION_SEG
+        value: 300
+      - key: SESSION_TTL_MINUTES
+        value: 30
+      - key: GEO_PROVIDER
+        value: nominatim
+      - key: WA_PHONE_TENANT_MAP
+        value: "{}"
